@@ -1,7 +1,7 @@
 models:
-  - name: stg_jaffle_shop__customer
+  - name: stg_jaffle_shop__customers
     columns:
-      - name: customer_id 
+      - name: customer_id
         data_tests:
           - unique
           - not_null
@@ -18,13 +18,11 @@ models:
               values:
                 - completed
                 - shipped
+                - returned
                 - placed
                 - return_pending
-                - returned
       - name: customer_id
         data_tests:
           - relationships:
+              to: ref('stg_jaffle_shop__customers')
               field: customer_id
-              to: ref('stg_raffle_shop__customers')
-      
-
